@@ -3,6 +3,17 @@ from c45 import gain
 
 
 def mine_c45(table, result):
+    """ An entry point for C45 algorithm.
+
+        _table_ - a dict representing data table in the following format:
+        {
+            "<column name>': [<column values>],
+            "<column name>': [<column values>],
+            ...
+        }
+
+        _result_: a string representing a name of column indicating a result.
+    """
     col = max([(k, gain(table, k, result)) for k in table.keys() if k != result],
               key=lambda x: x[1])[0]
     tree = []
