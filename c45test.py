@@ -1,5 +1,7 @@
 import unittest
-from c45 import *
+import json
+
+from c45 import freq, info, infox, gain
 
 
 class TestC45(unittest.TestCase):
