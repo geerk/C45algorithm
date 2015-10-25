@@ -6,22 +6,24 @@ from c45 import freq, info, infox, gain
 
 class TestC45(unittest.TestCase):
 
-    def setUp(self):
-        self.table = json.loads(open('table.json').read())
+    @classmethod
+    def setUpClass(cls):
+        with open('table.json') as f:
+            cls.table = json.loads(f.read())
 
     def test_freq(self):
-        self.assertEquals(freq(self.table, 'arg1', 'left'), 2)
-        self.assertEquals(freq(self.table, 'result', 'no'), 2)
-        self.assertEquals(freq(self.table, 'arg3', 'foo'), 0)
+        self.assertEqual(freq(self.table, 'arg1', 'left'), 2)
+        self.assertEqual(freq(self.table, 'result', 'no'), 2)
+        self.assertEqual(freq(self.table, 'arg3', 'foo'), 0)
 
     def test_info(self):
-        self.assertEquals(info(self.table, 'result'), 1)
+        self.assertEqual(info(self.table, 'result'), 1)
 
     def test_infox(self):
-        self.assertEquals(infox(self.table, 'arg1', 'result'), 1)
+        self.assertEqual(infox(self.table, 'arg1', 'result'), 1)
 
     def test_gain(self):
-        self.assertEquals(gain(self.table, 'arg1', 'result'), 0)
+        self.assertEqual(gain(self.table, 'arg1', 'result'), 0)
 
 
 if __name__ == '__main__':
