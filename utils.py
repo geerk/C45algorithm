@@ -1,8 +1,11 @@
+from collections import OrderedDict
+
+
 def deldup(li):
     """ Deletes duplicates from list _li_
-        and return new list with unic values.
+        and return new list with unique values.
     """
-    return list(set(li))
+    return list(OrderedDict.fromkeys(li))
 
 
 def is_mono(t):
