@@ -46,13 +46,13 @@ def print_list_tree(tree, tab=''):
     """ Prints list of nested lists in
         hierarchical form.
     """
-    print '%s[' % tab
+    print('%s[' % tab)
     for node in tree:
         if isinstance(node, basestring):
-            print '%s  %s' % (tab, node)
+            print('%s  %s' % (tab, node))
         else:
             print_list_tree(node, tab + '  ')
-    print '%s]' % tab
+    print('%s]' % tab)
 
 
 def formalize_rules(list_rules):
@@ -77,14 +77,3 @@ def get_subtables(t, col):
         divided by values of the column _col_.
     """
     return [del_values(t, get_indexes(t, col, v)) for v in deldup(t[col])]
-
-
-
-
-
-
-
-
-
-
-        
